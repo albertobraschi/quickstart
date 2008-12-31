@@ -6,8 +6,7 @@ class UsersController < ApplicationController
   before_filter :find_user, :only => [:suspend, :unsuspend, :destroy, :purge]
   # Protect these actions behind an admin login
   # before_filter :admin_required, :only => [:suspend, :unsuspend, :destroy, :purge]
-  before_filter :check_administrator_role, :only => [:index,
-                                      :suspend, :unsuspend, :destroy, :purge]
+  before_filter :check_administrator_role, :only => [:index, :suspend, :unsuspend, :destroy, :purge]
   
   # only an administrator should see all the users
   def index

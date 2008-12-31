@@ -1,11 +1,7 @@
-# Global constants such as "SITE_URL" are set in "config/initializers/app_constants.rb"
-# and read from "config/config.yml" or "config/config.local.yml" by the app_config plugin.
-# You'll probably want to change them in "config/config.yml", not here.
-
 class UserMailer < ActionMailer::Base
   def signup_notification(user)
     setup_email(user)
-    @subject     = 'Please activate your new account'
+    @subject     = "#{SITE_NAME} - ative sua conta"
   
     @body[:url]  = "#{SITE_URL}activate/#{user.activation_code}"
   
@@ -13,19 +9,19 @@ class UserMailer < ActionMailer::Base
   
   def activation(user)
     setup_email(user)
-    @subject     = 'Your account has been activated!'
+    @subject     = "#{SITE_NAME} - sua conta foi ativada!"
     @body[:url]  = SITE_URL
   end
 
   def forgot_password(user)
     setup_email(user)
-    @subject     = 'You have requested to change your password'
+    @subject     = "#{SITE_NAME} - alterar senha"
     @body[:url]  = "#{SITE_URL}reset_password/#{user.password_reset_code}"
   end
 
   def reset_password(user)
     setup_email(user)
-    @subject     = 'Your password has been reset.'
+    @subject     = "#{SITE_NAME} - nova senha"
   end
 
   def message_to_admin(subject,body)

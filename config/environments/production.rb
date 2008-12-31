@@ -20,3 +20,14 @@ config.action_view.cache_template_loading            = true
 
 # Disable delivery errors, bad email addresses will be ignored
 # config.action_mailer.raise_delivery_errors = false
+
+# Email settings for your own server
+# ActionMailer::Base.delivery_method = :smtp  # or :sendmail
+# ActionMailer::Base.smtp_settings = {
+#  :address => "mail.YOURDOMAIN.com",
+#  :port => 25,
+#  :domain => "YOURDOMAIN.com",
+#  :authentication => :login,
+#  :user_name => "YOURUSERNAME@YOURDOMAIN.com",
+#  :password => "YOURPASSWORD"
+#}

@@ -18,6 +18,7 @@ class CreatePermissions < ActiveRecord::Migration
       :password => ADMIN_PASSWORD,
       :password_confirmation => ADMIN_PASSWORD
     })
+    user.state = "pending"
     user.save(false)
     user = User.find_by_login(ADMIN_LOGIN)
     user.send(:activate!)

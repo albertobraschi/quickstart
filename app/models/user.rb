@@ -4,19 +4,20 @@ class User < ActiveRecord::Base
   include Authentication
   include Authentication::ByPassword
   include Authentication::ByCookieToken
-  include Authorization::StatefulRoles
+  include Authorization::AasmRoles
+  
   validates_presence_of     :login
   validates_length_of       :login,    :within => 3..40
   validates_uniqueness_of   :login,    :case_sensitive => false
-  validates_format_of       :login,    :with => RE_LOGIN_OK, :message => MSG_LOGIN_BAD
+  validates_format_of       :login,    :with => Authentication::login_regex , :message => Authentication::bad_login_message
 
-  validates_format_of       :name,     :with => RE_NAME_OK,  :message => MSG_NAME_BAD, :allow_nil => true
+  validates_format_of       :name,     :with => Authentication::name_regex,  :message => Authentication::bad_name_message, :allow_nil => true
   validates_length_of       :name,     :maximum => 100
 
   validates_presence_of     :email
   validates_length_of       :email,    :within => 6..100 #r@a.wk
   validates_uniqueness_of   :email,    :case_sensitive => false
-  validates_format_of       :email,    :with => RE_EMAIL_OK, :message => MSG_EMAIL_BAD
+  validates_format_of       :email,    :with => Authentication::email_regex, :message => Authentication::bad_email_message
 
   has_many :permissions
   has_many :roles, :through => :permissions
@@ -25,8 +26,6 @@ class User < ActiveRecord::Base
   # prevents a user from submitting a crafted form that bypasses activation
   # anything else you want your user to change should be added here.
   attr_accessible :login, :email, :name, :password, :password_confirmation
-
-
 
   # Authenticates a user by their login name and unencrypted password.  Returns the user or nil.
   #

@@ -20,24 +20,6 @@
 	<p><%= submit_tag 'Sign up' %></p>
 <% end -%>
 
-
-<% content_for(:sidebar) do %>
-	<div class="box">
-		<h3> Why Sign up? </h3>
-		<ul class="list checks">
-		<li>You'll have access to all the features</li>
-		</ul>
-	</div>
-	<div class="box alt">
-		<h3>Tips</h3>
-		<p> After signing up, you'll receive an e-mail confirmation message. </p>
-		<p> Click the activation link in the e-mail to log in. </p>
-		<p>
-		<%= link_to 'Already have an account?', new_session_path %>
-		</p>
-	</div>
-<% end -%>
-
 <% content_for(:head) do %>
 	<script type='text/javascript'>
 	  document.getElementById('login').focus()

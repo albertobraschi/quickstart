@@ -1,13 +1,8 @@
-# origin restful authentication
+# base app
 
 Use this example Rails application as a basis for a typical web application.
 
-It provides a complete system for managing users, including sign up and verification of a new user's email address, login with role-based access control, and a system of resetting forgotten passwords, all using a RESTful architecture, as 
-described in the forum discussion [Restful Authentication With All the Bells and Whistles](http://www.railsforum.com/viewtopic.php?id=14216).
-
-The application provides _authentication_ (the user must enter a name and password to use the application) and _authorization_ (access to some pages is limited to users with an "administrator" role). To use the application, a visitor must sign up and click an activation link in an email message. If the user forgets his or her password, there is a forgot password option that emails a reset password link.
-
-### Features from "Restful Authentication With All the Bells and Whistles"
+### Features
 
 * visitors register ("sign up") to create a user account
 * new users are emailed a link to verify their email address and activate their account
@@ -15,29 +10,9 @@ The application provides _authentication_ (the user must enter a name and passwo
 * a "forgotten password" feature sets a new password for a user
 * some users can be assigned an administrator role to edit or delete other users
 * user management and authentication is implemented with a RESTful architecture
-
-### Added Features
-
 * user status managed with the "acts as state machine" (AASM) plugin
-* Email messages can be sent using a Google gmail account
-* Application global configuration file
+* Email messages can be sent using a Google gmail account (tls file in lib folder)
 * RSpec stories and examples
-
-The application does not provide support for the OpenID protocol. The forum discussion [Restful Authentication With All the Bells and Whistles](http://www.railsforum.com/viewtopic.php?id=14216) provides instructions for adding OpenID support if you require it.
-
-## More Information
-
-You can ask questions, make suggestions, and report problems:
-
-* [Get Satisfaction for the RESTful Authentication Example Application](http://getsatisfaction.com/origin/products/origin_restful_authentication_example_application)
-
-You can see the original announcement:
-
-* [Rails RESTful Authentication Example Application](http://originblog.wordpress.com/2008/08/13/rails-restful-authentication-example-application/)
-
-and keep up with developments on the blog:
-
-* [Origin: Rails Example Applications](http://originblog.wordpress.com/)
 
 ## Dependencies
 
@@ -47,9 +22,10 @@ and keep up with developments on the blog:
 
 * restful\_authentication
 * acts\_as\_state\_machine
+
+## Ruby Gems
 * rspec
 * rspec-rails
-* app\_config
 
 ## Get It
 
@@ -161,64 +137,9 @@ When you run RSpec stories or examples, real email messages are sent. You may ge
 * Add RSpec examples and stories to cover more "Bells and Whistles" features
 * Change "login" to use email addresses instead
 
-## Done
-
-* Created an empty default Rails app
-* Added a License and README file
-* Created a .gitignore file
-* Checked the app into GitHub
-* Added RSpec (version 1.1.4)
-* Installed the restful_authentication plugin (version of 08/07/08)
-* Installed the "acts as state machine" plugin (version 2.1)
-* Tagged step-1
-* Ran the restful_authentication generator ("./script/generate authenticated user sessions --stateful --rspec")
-* modified config/routes.rb and config/environment.rb as required
-* Tagged step-2
-* Added recommended "Bells and Whistles" features 
-	* Created the model, controller, and views for resource "Roles"
-	* Created a join model "Permission"
-	* Created controller for "Passwords"
-	* Created required migrations
-	* Modified models "Role", "Permission", and "User"
-	* Modified UserMailer and UserObserver
-	* Added Google gmail support with lib/smtp\_tls.rb
-	* Modified config/initializers/mail.rb
-	* Modified lib/authenticated\_system.rb
-	* Modified controllers
-	* Added views
-* Tagged step-3
-* Added Eugene Bolshakov's AppConfig plugin
-* Added Blueprint CSS framework
-* Modified views and added CSS to apply design elements
-* Tagged step-4
-* Set up global constants in config/initializers/app\_constants_.rb
-* Added a welcome page
-
-## Documentation and Support
-
-The forum discussion [Restful Authentication With All the Bells and Whistles](http://www.railsforum.com/viewtopic.php?id=14216) provides detailed information about the code. You can seek clarification or help there.
-
-Here's another place to ask questions, make suggestions, and report problems:
-
-* [Get Satisfaction for the RESTful Authentication Example Application](http://getsatisfaction.com/origin/products/origin_restful_authentication_example_application)
-
-Here are useful blog postings:
-
-* [How to Install RESTful Authentication on a Ruby on Rails 2.1 Application](http://crazyrails.com/how-to-install-restful-authentication/).
-* Frank Lakatos's [How to Set Up Restful Authentication and acts_as_state_machine With Rails 2.1](http://fakingfantastic.com/2008/08/05/how-to-set-up-restful-authentication-and-acts_as_state_machine-with-rails-21/).
-* Dan Engle's [My Take on Enhancing restful_authentication](http://morebs.com/2008/02/20/my-take-on-restful_authentication/).
-
-This application is provided without additional documentation or support.
-
 ## Credits
 
 * Rick Olson (and contributors) for the Restful Authentication Generator plugin
 * "activefx" for "Restful Authentication With All the Bells and Whistles"
 * Scott Barron for the "acts as state machine" plugin
-* Graphic design derived from [Bruno Bornsztein's CommunityEngine](http://www.missingmethod.com/)
-	
-## License
-
-### Public Domain Dedication
-
-This work is a compilation and derivation from other previously released works. With the exception of various included works, which may be restricted by other licenses, the author or authors of this code dedicate any and all copyright interest in this code to the public domain. We make this dedication for the benefit of the public at large and to the detriment of our heirs and successors. We intend this dedication to be an overt act of relinquishment in perpetuity of all present and future rights to this code under copyright law. 
+* http://github.com/fortuity/origin_restful_authentication/tree , use as base for this app... thanks

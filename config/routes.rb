@@ -10,9 +10,7 @@ ActionController::Routing::Routes.draw do |map|
   map.forgot_password '/forgot_password',      :controller => 'passwords', :action => 'new'
   map.reset_password  '/reset_password/:id',  :controller => 'passwords', :action => 'edit'
   
-  map.resources :users, :member => { :suspend   => :put,
-                                     :unsuspend => :put,
-                                     :purge     => :delete } do |user|
+  map.resources :users, :member => { :suspend => :put, :unsuspend => :put, :purge => :delete } do |user|
     user.resources :roles
   end
 
