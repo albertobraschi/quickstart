@@ -10,22 +10,25 @@ Use this example Rails application as a basis for a typical web application.
 * a "forgotten password" feature sets a new password for a user
 * some users can be assigned an administrator role to edit or delete other users
 * user management and authentication is implemented with a RESTful architecture
-* user status managed with the "acts as state machine" (AASM) plugin
+* user status managed with the "acts as state machine" (AASM) gem
 * Email messages can be sent using a Google gmail account (tls file in lib folder)
 * RSpec stories and examples
 
 ## Dependencies
 
-* Runs under Rails 2.1
+* Runs under Rails 2.2
 
 ## Rails Plugins Used
 
 * restful\_authentication
-* acts\_as\_state\_machine
+* jrails
+* paperclip
 
 ## Ruby Gems
 * rspec
 * rspec-rails
+* will\_paginate
+* act\_as\_state\_machine
 
 ## Get It
 
@@ -135,6 +138,7 @@ When you run RSpec stories or examples, real email messages are sent. You may ge
 ## To Do
 
 * Add RSpec examples and stories to cover more "Bells and Whistles" features
+* Change stories from StoryRunner to Cucumber
 * Change "login" to use email addresses instead
 
 ## Credits
